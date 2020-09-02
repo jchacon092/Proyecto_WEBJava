@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 11:31:32 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.TblProducto" table="tblProducto" schema="dbo" catalog="dbcompra2017" optimistic-lock="version">
+        <id name="codigoProducto" type="long">
+            <column name="CodigoProducto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblCategoria" class="model.TblCategoria" fetch="select">
+            <column name="CodigoCategoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblMarca" class="model.TblMarca" fetch="select">
+            <column name="CodigoMarca" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblProveedor" class="model.TblProveedor" fetch="select">
+            <column name="CodigoProveedor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblUbicacion" class="model.TblUbicacion" fetch="select">
+            <column name="CodigoUbicacion" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="serializable">
+            <column name="Descripcion" not-null="true" />
+        </property>
+        <property name="descuento" type="big_decimal">
+            <column name="Descuento" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="Precio" precision="18" not-null="true" />
+        </property>
+        <property name="existenciaMinima" type="big_decimal">
+            <column name="ExistenciaMinima" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="existenciaMaxima" type="big_decimal">
+            <column name="ExistenciaMaxima" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="existencia" type="big_decimal">
+            <column name="Existencia" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="fechaVencimiento" type="timestamp">
+            <column name="FechaVencimiento" length="23" not-null="true" />
+        </property>
+        <property name="foto" type="binary">
+            <column name="Foto" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="Activo" not-null="true" />
+        </property>
+        <set name="tblCompraDetalles" table="tblCompraDetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CodigoProducto" not-null="true" />
+            </key>
+            <one-to-many class="model.TblCompraDetalle" />
+        </set>
+        <set name="tblMovimientos" table="tblMovimiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CodigoProducto" not-null="true" />
+            </key>
+            <one-to-many class="model.TblMovimiento" />
+        </set>
+    </class>
+</hibernate-mapping>

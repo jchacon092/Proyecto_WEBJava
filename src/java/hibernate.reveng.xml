@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="dbcompra2017" match-schema="dbo"/>
+  <table-filter match-name="tblProducto"/>
+  <table-filter match-name="tblCompraReferencia"/>
+  <table-filter match-name="tblCategoria"/>
+  <table-filter match-name="tblCompraDetalle"/>
+  <table-filter match-name="tblEmpleado"/>
+  <table-filter match-name="tblMarca"/>
+  <table-filter match-name="tblPuesto"/>
+  <table-filter match-name="tblProveedor"/>
+  <table-filter match-name="tblUbicacion"/>
+  <table-filter match-name="tblMovimiento"/>
+</hibernate-reverse-engineering>

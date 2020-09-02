@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 11:31:32 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.TblMovimiento" table="tblMovimiento" schema="dbo" catalog="dbcompra2017" optimistic-lock="version">
+        <id name="codigo" type="long">
+            <column name="Codigo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblProducto" class="model.TblProducto" fetch="select">
+            <column name="CodigoProducto" not-null="true" />
+        </many-to-one>
+        <property name="motivo" type="string">
+            <column name="Motivo" length="100" not-null="true" />
+        </property>
+        <property name="inicial" type="double">
+            <column name="Inicial" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="entro" type="java.lang.Double">
+            <column name="Entro" precision="53" scale="0" />
+        </property>
+        <property name="salio" type="java.lang.Double">
+            <column name="Salio" precision="53" scale="0" />
+        </property>
+        <property name="final_" type="double">
+            <column name="Final" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="Fecha" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

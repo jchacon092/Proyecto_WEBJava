@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://LAPTOP-OF82P701\SQLSERVER2012:1433;databaseName=dbcompra2017</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">123</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="model/TblEmpleado.hbm.xml"/>
+    <mapping resource="model/TblPuesto.hbm.xml"/>
+    <mapping resource="model/TblMarca.hbm.xml"/>
+    <mapping resource="model/TblProducto.hbm.xml"/>
+    <mapping resource="model/TblCompraReferencia.hbm.xml"/>
+    <mapping resource="model/TblCategoria.hbm.xml"/>
+    <mapping resource="model/TblUbicacion.hbm.xml"/>
+    <mapping resource="model/TblMovimiento.hbm.xml"/>
+    <mapping resource="model/TblCompraDetalle.hbm.xml"/>
+    <mapping resource="model/TblProveedor.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

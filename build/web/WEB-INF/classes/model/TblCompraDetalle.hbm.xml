@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 11:31:32 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.TblCompraDetalle" table="tblCompraDetalle" schema="dbo" catalog="dbcompra2017" optimistic-lock="version">
+        <id name="codigoCompraDetalle" type="long">
+            <column name="CodigoCompraDetalle" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblCompraReferencia" class="model.TblCompraReferencia" fetch="select">
+            <column name="CodigoCompraR" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblProducto" class="model.TblProducto" fetch="select">
+            <column name="CodigoProducto" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="big_decimal">
+            <column name="Cantidad" precision="18" scale="4" not-null="true" />
+        </property>
+        <property name="pcompra" type="big_decimal">
+            <column name="PCompra" scale="4" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

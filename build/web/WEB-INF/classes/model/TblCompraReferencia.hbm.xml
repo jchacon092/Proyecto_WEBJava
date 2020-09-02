@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 11:31:32 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.TblCompraReferencia" table="tblCompraReferencia" schema="dbo" catalog="dbcompra2017" optimistic-lock="version">
+        <id name="codigoCompraR" type="long">
+            <column name="CodigoCompraR" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblEmpleado" class="model.TblEmpleado" fetch="select">
+            <column name="CodigoEmpleado" not-null="true" />
+        </many-to-one>
+        <property name="documento" type="string">
+            <column name="Documento" length="50" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="Fecha" length="23" not-null="true" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="Total" scale="4" not-null="true" />
+        </property>
+        <property name="confirmado" type="boolean">
+            <column name="Confirmado" not-null="true" />
+        </property>
+        <property name="numeroEnvio" type="string">
+            <column name="NumeroEnvio" length="50" />
+        </property>
+        <property name="fechaConfirmacion" type="timestamp">
+            <column name="FechaConfirmacion" length="23" not-null="true" />
+        </property>
+        <property name="anulado" type="boolean">
+            <column name="Anulado" not-null="true" />
+        </property>
+        <set name="tblCompraDetalles" table="tblCompraDetalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CodigoCompraR" not-null="true" />
+            </key>
+            <one-to-many class="model.TblCompraDetalle" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 29, 2017 11:31:32 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.TblProveedor" table="tblProveedor" schema="dbo" catalog="dbcompra2017" optimistic-lock="version">
+        <id name="codigoProveedor" type="int">
+            <column name="CodigoProveedor" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="100" not-null="true" />
+        </property>
+        <property name="nit" type="string">
+            <column name="Nit" length="50" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="50" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="Activo" not-null="true" />
+        </property>
+        <set name="tblProductos" table="tblProducto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CodigoProveedor" not-null="true" />
+            </key>
+            <one-to-many class="model.TblProducto" />
+        </set>
+    </class>
+</hibernate-mapping>
